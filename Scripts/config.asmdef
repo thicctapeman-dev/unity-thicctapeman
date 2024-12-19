@@ -1,7 +1,7 @@
 {
-  name ThiccTapeman,
-  references [],
-  optionalUnityReferences [TestAssemblies],
-  includePlatforms [],
-  excludePlatforms []
+  "name": "ThiccTapeman.Unity",
+  "references": [],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "includePlatforms": [],
+  "excludePlatforms": []
 }
