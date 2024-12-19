@@ -1,0 +1,7 @@
+{
+  name ThiccTapeman,
+  references [],
+  optionalUnityReferences [TestAssemblies],
+  includePlatforms [],
+  excludePlatforms []
+}
