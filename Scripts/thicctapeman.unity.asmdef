@@ -3,7 +3,9 @@
     "references": [
         "ThiccTapeman.Input",
         "ThiccTapeman.Utils",
-        "ThiccTapeman.Grid"
+        "ThiccTapeman.Grid",
+        "UnityEngine.InputSystem",
+        "TMPro"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
