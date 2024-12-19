@@ -1,17 +1,14 @@
 {
-    "name": "ThiccTapeman",
-    "references": [
-        "ThiccTapeman.Input",
-        "ThiccTapeman.Utils",
-        "ThiccTapeman.Grid",
-        "UnityEngine.InputSystem",
-        "TMPro"
-    ],
+    "name": "thicctapeman.unity",
+    "rootNamespace": "",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
-    "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        ""
+    ],
     "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],
