@@ -35,12 +35,18 @@ namespace ThiccTapeman.Bezier
             return p;
         }
 
+
+
+
+
+
         public Vector3 CalculateCubicBezierPointNormalOffset(float t, float offset)
         {
             Vector3 offsetPosition = CalculateCubicBezierPointNormalOffset(this, t, offset);
 
             return offsetPosition;
         }
+
 
         private static Vector3 CalculateCubicBezierPointNormalOffset(CubicBezier cubicBezier, float t, float offset)
         {
@@ -64,6 +70,13 @@ namespace ThiccTapeman.Bezier
             return tangent;
         }
 
+
+
+
+
+
+
+
         public void DrawGizmos()
         {
             Gizmos.color = Color.red;
@@ -80,6 +93,13 @@ namespace ThiccTapeman.Bezier
             }
         }
 
+
+
+
+
+
+
+
         public static Vector3 CalculateCubicBezierListPoint(List<CubicBezier> list, float t)
         {
             int index = Mathf.FloorToInt(t);
@@ -92,6 +112,34 @@ namespace ThiccTapeman.Bezier
             int index = Mathf.FloorToInt(t);
 
             return CalculateCubicBezierPointNormalOffset(list[index], t - index, offset);
+        }
+
+
+
+
+
+        public static Vector3 GetStartPoint(List<CubicBezier> list)
+        {
+            return GetStartPoint(list, out Vector3 normal);
+        }
+
+        public static Vector3 GetStartPoint(List<CubicBezier> list, out Vector3 normal)
+        {
+            normal = CalculateCubicBezierTangent(list[0], 0);
+
+            return list[0].pointA;
+        }
+
+        public static Vector3 GetEndPoint(List<CubicBezier> list)
+        {
+            return GetEndPoint(list, out Vector3 normal);
+        }
+
+        public static Vector3 GetEndPoint(List<CubicBezier> list, out Vector3 normal)
+        {
+            normal = CalculateCubicBezierTangent(list[list.Count - 1], 1);
+
+            return list[list.Count - 1].pointB;
         }
     }
 }
