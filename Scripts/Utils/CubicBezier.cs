@@ -4,12 +4,13 @@ using UnityEngine;
 
 namespace ThiccTapeman.Bezier
 {
+    [System.Serializable]
     public class CubicBezier
     {
-        public Vector3 p0;
-        public Vector3 p1;
-        public Vector3 p2;
-        public Vector3 p3;
+        public Vector3 pointA;
+        public Vector3 handleA;
+        public Vector3 pointB;
+        public Vector3 handleB;
 
         public Vector3 CalculateCubicBezierPoint(float t)
         {
@@ -19,10 +20,10 @@ namespace ThiccTapeman.Bezier
             float uuu = uu * u;
             float ttt = tt * t;
 
-            Vector3 p = uuu * p0;
-            p += 3 * uu * t * p1;
-            p += 3 * u * tt * p2;
-            p += ttt * p3;
+            Vector3 p = uuu * pointA;
+            p += 3 * uu * t * handleA;
+            p += 3 * u * tt * handleB;
+            p += ttt * pointB;
 
             return p;
         }
@@ -41,10 +42,10 @@ namespace ThiccTapeman.Bezier
             float tt = t * t;
             float uu = u * u;
 
-            Vector3 tangent = -3 * uu * p0;
-            tangent += 3 * (uu - 2 * u * t) * p1;
-            tangent += 3 * (t * (2 * u - t)) * p2;
-            tangent += 3 * tt * p3;
+            Vector3 tangent = -3 * uu * pointA;
+            tangent += 3 * (uu - 2 * u * t) * handleA;
+            tangent += 3 * (t * (2 * u - t)) * handleB;
+            tangent += 3 * tt * pointB;
 
             return tangent;
         }
@@ -52,11 +53,11 @@ namespace ThiccTapeman.Bezier
         public void DrawGizmos()
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(p0, p1);
-            Gizmos.DrawLine(p2, p3);
+            Gizmos.DrawLine(pointA, handleA);
+            Gizmos.DrawLine(handleB, pointB);
 
             Gizmos.color = Color.green;
-            Vector3 lastPoint = p0;
+            Vector3 lastPoint = pointA;
             for (float t = 0.05f; t <= 1; t += 0.05f)
             {
                 Vector3 point = CalculateCubicBezierPoint(t);
